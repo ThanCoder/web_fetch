@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:than_pkg_linux/than_pkg_linux.dart';
+import 'package:web_fetcher/core/controller/i_controller.dart';
+import 'package:web_fetcher/core/controller/web_site_controller.dart';
 import 'package:web_fetcher/core/utils/app_util.dart';
 
 import 'platforms/platform_app.dart';
@@ -20,6 +22,8 @@ void main() async {
       AppUtil.instance.appName,
     );
   }
+  ControllerManager.register(WebSiteController());
+  await ControllerManager.initAll();
 
   runApp(const PlatformApp());
 }
